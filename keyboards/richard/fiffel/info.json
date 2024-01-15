@@ -1,6 +1,6 @@
 {
     "manufacturer": "Richard Johansson",
-    "keyboard_name": "richard/fiffel",
+    "keyboard_name": "fiffel",
     "maintainer": "richard8003",
     "bootloader": "rp2040",
     "diode_direction": "COL2ROW",
