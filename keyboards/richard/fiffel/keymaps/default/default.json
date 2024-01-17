@@ -51,7 +51,7 @@
       "LT(3,KC_NO)"
     ],
     [
-      "KC_NO",
+      "SGUI(KC_X)",
       "LALT(KC_7)",
       "LALT(KC_2)",
       "LSFT(KC_6)",
@@ -75,7 +75,7 @@
       "KC_6",
       "LSFT(KC_8)",
       "LSFT(KC_9)",
-      "KC_NO",
+      "SGUI(KC_4)",
       "KC_PLUS",
       "KC_GRV",
       "KC_TILD",
