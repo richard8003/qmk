@@ -26,6 +26,10 @@
 *.stackdump
 *.sym
 
+backup_redox
+
+
+
 # QMK-specific
 api_data/v1
 quantum/version.h
