@@ -1,8 +1,8 @@
 {
     "manufacturer": "Richard Johansson",
-    "keyboard_name": "fiffel",
+    "keyboard_name": "fiffel_pcb",
     "maintainer": "richard8003",
-    "bootloader": "rp2040",
+    "bootloader": "caterina",
     "diode_direction": "COL2ROW",
     "features": {
         "bootmagic": true,
@@ -13,13 +13,13 @@
         "nkro": true
     },
     "matrix_pins": {
-        "cols": ["GP4", "GP5", "GP6", "GP7", "GP8", "GP9"],
-        "rows": ["GP12", "GP13", "GP14", "GP15" ]
+        "cols": ["D4", "C6", "D7", "E6", "B4", "B5", ],
+        "rows": ["B1", "B3", "B2", "B6", ]
     },
     "split": {
-    "soft_serial_pin": "GP1"
+    "soft_serial_pin": "D2"
   },
-    "processor": "RP2040",
+    "processor": "atmega32u4",
     "url": "",
     "usb": {
         "device_version": "1.0.0",
