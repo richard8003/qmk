@@ -164,11 +164,14 @@ const uint16_t PROGMEM jump_word_forward[] = {KC_T, KC_E, COMBO_END};
 const uint16_t PROGMEM delete_word_back[] = {KC_T, KC_S, KC_R, COMBO_END};
 const uint16_t PROGMEM zoom_in[] = {KC_SCLN, KC_LBRC, COMBO_END};
 const uint16_t PROGMEM zoom_out[] = {KC_O, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM mouse_layer_5[] = {KC_T, KC_D, COMBO_END};
+const uint16_t PROGMEM td_esc[] = {KC_I, KC_E, COMBO_END};
 
-// macros
+
+// macrosuj
 const uint16_t PROGMEM tfe[] = {KC_T, KC_F, KC_E, COMBO_END};
-const uint16_t PROGMEM private_email[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM sc_email[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM private_email[] = {KC_ESC, KC_A, COMBO_END};
+const uint16_t PROGMEM sc_email[] = {KC_F3, KC_Q, COMBO_END};
 const uint16_t PROGMEM organiser[] = {KC_O, KC_R, KC_G, COMBO_END};     //org
 const uint16_t PROGMEM smoothcomp[] = {KC_S, KC_M, KC_O, COMBO_END};    //smo
 const uint16_t PROGMEM richard[] = {KC_R, KC_H, COMBO_END};             //rh
@@ -204,6 +207,9 @@ combo_t key_combos[] = {
     COMBO(delete_word_back, LALT(KC_BSPC)), // keycodes with modifiers are possible too!
     COMBO(zoom_in, LGUI(KC_MINS)), // keycodes with modifiers are possible too!
     COMBO(zoom_out, LGUI(KC_SLSH)), // keycodes with modifiers are possible too!
+    COMBO(mouse_layer_5, LT(5, KC_NO)), // keycodes with modifiers are possible too!
+    COMBO(td_esc, KC_ESC), // keycodes with modifiers are possible too!
+
 
 
 // macros
