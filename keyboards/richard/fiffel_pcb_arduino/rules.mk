@@ -18,12 +18,9 @@ RGB_MATRIX_ENABLE = no    # Enable keyboard RGB matrix functionality
 
 SPLIT_KEYBOARD = yes
 
-#SERIAL_DRIVER = vendor
-#SERIAL_DRIVER = bitbang
-
 BOOTLOADER = caterina
 COMBO_ENABLE = yes
-TAP_DANCE_ENABLE=yes
+TAP_DANCE_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
 
 MOUSEKEY_ENABLE = yes

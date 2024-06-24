@@ -10,11 +10,11 @@
 
 Make example for this keyboard (after setting up your build environment):
 
-    make richard/fiffel:default
+    make richard/fiffel_pcb_rp2040:default
 
 Flashing example for this keyboard:
 
-    make richard/fiffel:default:flash
+    make richard/fiffel_pcb_rp2040:default:flash
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 

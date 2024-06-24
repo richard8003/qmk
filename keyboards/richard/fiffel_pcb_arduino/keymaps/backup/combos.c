@@ -122,65 +122,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 };
 
 
-// SPECIAL CHARACTERS
-// '
+const uint16_t PROGMEM cut[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM copy[] = {KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM paste[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM single_quote[] = {KC_U, KC_N, COMBO_END};
-// "
 const uint16_t PROGMEM quote[] = {KC_H, KC_L, COMBO_END};
-// ?
 const uint16_t PROGMEM question_mark[] = {KC_U, KC_Y, COMBO_END};
-// !
 const uint16_t PROGMEM bang[] = {KC_N, KC_A, COMBO_END};
-// &
-const uint16_t PROGMEM and_sign[] = {KC_N, KC_F, COMBO_END};
-// -
 const uint16_t PROGMEM hyphen[] = {KC_T, KC_PSLS, COMBO_END};
-// _
 const uint16_t PROGMEM lowhyphen[] = {KC_N, KC_V, COMBO_END};
-// @
-const uint16_t PROGMEM at_sign[] = {KC_N, KC_W, COMBO_END};
-// '\'
-const uint16_t PROGMEM forward_slash[] = {KC_N, KC_P, COMBO_END};
-// ~
-const uint16_t PROGMEM tilde[] = {KC_N, KC_G, COMBO_END};
-// |
-const uint16_t PROGMEM pipe[] = {KC_N, KC_Q, COMBO_END};
-// #
-const uint16_t PROGMEM hash[] = {KC_N, KC_S, COMBO_END};
-// $
-const uint16_t PROGMEM dollar[] = {KC_N, KC_T , COMBO_END};
-// %
-const uint16_t PROGMEM procent[] = {KC_N, KC_D, COMBO_END};
-
-
-// F3
-const uint16_t PROGMEM ff[] = {KC_A, KC_R, COMBO_END};
-
-
-// cut, copy & paste
-const uint16_t PROGMEM cut[] = {KC_P, KC_G, COMBO_END};
-const uint16_t PROGMEM copy[] = {KC_T, KC_D, COMBO_END};
-const uint16_t PROGMEM paste[] = {KC_V, KC_B, COMBO_END};
-
-// layer 3
 const uint16_t PROGMEM layer3_left[] = {KC_R, KC_S, COMBO_END};
-
-// delete a whole word
+// const uint16_t PROGMEM layer3_right[] = {KC_E, KC_I, COMBO_END};
+// const uint16_t PROGMEM pipe[] = {KC_N, KC_Q, COMBO_END};
+const uint16_t PROGMEM change_tmux_tab[] = {KC_4, KC_5, COMBO_END};
+// const uint16_t PROGMEM jump_word_back[] = {KC_N, KC_T, COMBO_END};
+// const uint16_t PROGMEM jump_word_forward[] = {KC_T, KC_E, COMBO_END};
 const uint16_t PROGMEM delete_word_back[] = {KC_T, KC_S, KC_R, COMBO_END};
+// const uint16_t PROGMEM zoom_in[] = {KC_SCLN, KC_LBRC, COMBO_END};
+// const uint16_t PROGMEM zoom_out[] = {KC_O, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM mouse_layer_5[] = {KC_T, KC_D, COMBO_END};
+// const uint16_t PROGMEM td_esc[] = {KC_I, KC_E, COMBO_END};
 
-// mouse layer
-// const uint16_t PROGMEM mouse_layer_5[] = {KC_T, KC_D, COMBO_END};
 
-// esc
-const uint16_t PROGMEM ie_esc[] = {KC_I, KC_E, COMBO_END};
 
-// shift
-// const uint16_t PROGMEM left_shift[] = {KC_X, KC_C, COMBO_END};
-// const uint16_t PROGMEM right_shift[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM left_shift[] = {KC_T, KC_S, COMBO_END};
-const uint16_t PROGMEM right_shift[] = {KC_N, KC_E, COMBO_END};
-
-// text string macros
+// macrosuj
 const uint16_t PROGMEM tfe[] = {KC_T, KC_F, KC_E, COMBO_END};
 const uint16_t PROGMEM private_email[] = {KC_ESC, KC_A, COMBO_END};
 const uint16_t PROGMEM sc_email[] = {KC_F3, KC_Q, COMBO_END};
@@ -201,58 +166,40 @@ const uint16_t PROGMEM registr[] = {KC_R, KC_E, KC_G, COMBO_END};      //reg
 
 
 combo_t key_combos[] = {
-
-    // cut, copy, paste
     COMBO(cut, LGUI(KC_X)),
     COMBO(copy, LGUI(KC_C)),
-    COMBO(paste, LGUI(KC_V)),
-
-    // esc
-    COMBO(ie_esc, KC_ESC),
-
-    // shift keys
-    COMBO(left_shift, KC_LSFT),
-    COMBO(right_shift, KC_RSFT),
-
-    // special characters
-    COMBO(single_quote, KC_BSLS),
-    COMBO(quote, LSFT(KC_2)),
-    COMBO(question_mark, LSFT(KC_MINS)),
-    COMBO(bang, LSFT(KC_1)),
-    COMBO(hyphen, KC_SLSH),
-    COMBO(lowhyphen, LSFT(KC_SLSH)),
-    COMBO(at_sign, LALT(KC_2)),
-    COMBO(and_sign, LSFT(KC_6)),
-    COMBO(forward_slash, LSA(KC_7)),
-    COMBO(tilde, RALT(KC_RBRC)),
-    COMBO(pipe, LALT(KC_7)),
-    COMBO(hash, KC_HASH),
-    COMBO(dollar, RALT(KC_4)),
-    COMBO(procent, LSFT(KC_5)),
-
-    // F3
-    COMBO(ff, KC_F3),
-
-    // layer 3
-    COMBO(layer3_left, LT(3,KC_NO)),
-    COMBO(delete_word_back, LALT(KC_BSPC)),
-
-    // mouse layer
-    // COMBO(mouse_layer_5, LT(5, KC_NO)),
+    COMBO(paste, LGUI(KC_V)), // keycodes with modifiers are possible too!
+    COMBO(single_quote, KC_BSLS), // keycodes with modifiers are possible too!
+    COMBO(question_mark, LSFT(KC_MINS)), // keycodes with modifiers are possible too!
+    COMBO(bang, LSFT(KC_1)), // keycodes with modifiers are possible too!
+    COMBO(hyphen, KC_SLSH), // keycodes with modifiers are possible too!
+    COMBO(lowhyphen, LSFT(KC_SLSH)), // keycodes with modifiers are possible too!
+    COMBO(layer3_left, LT(3,KC_NO)), // keycodes with modifiers are possible too!
+    // COMBO(layer3_right, LT(3,KC_NO)), // keycodes with modifiers are possible too!
+    COMBO(quote, LSFT(KC_2)), // keycodes with modifiers are possible too!
+    // COMBO(pipe, LALT(KC_7)), // keycodes with modifiers are possible too!
+    COMBO(change_tmux_tab, LCTL(KC_A)), // keycodes with modifiers are possible too!
+    // COMBO(jump_word_back, LALT(KC_LEFT)), // keycodes with modifiers are possible too!
+    // COMBO(jump_word_forward, LALT(KC_RIGHT)), // keycodes with modifiers are possible too!
+    COMBO(delete_word_back, LALT(KC_BSPC)), // keycodes with modifiers are possible too!
+    // COMBO(zoom_in, LGUI(KC_MINS)), // keycodes with modifiers are possible too!
+    // COMBO(zoom_out, LGUI(KC_SLSH)), // keycodes with modifiers are possible too!
+    COMBO(mouse_layer_5, LT(5, KC_NO)), // keycodes with modifiers are possible too!
+    // COMBO(td_esc, KC_ESC), // keycodes with modifiers are possible too!
 
 
 
 // macros
-    COMBO(tfe, THANKYOUFORYOUREMAIL),
-    COMBO(organiser, ORGANISER),
-    COMBO(smoothcomp, SMOOTHCOMP),
-    COMBO(associated, ASSOCIATED),
-    COMBO(email_address, EMAIL_ADDRESS),
-    COMBO(please, PLEASE),
-    COMBO(haveaniceday, HAVEANICEDAY),
-    COMBO(account, ACCOUNT),
-    COMBO(manager, MANAGER),
-    COMBO(user, USER),
-    COMBO(access, ACCESS),
+    COMBO(tfe, THANKYOUFORYOUREMAIL), // keycodes with modifiers are possible too!
+    COMBO(organiser, ORGANISER), // keycodes with modifiers are possible too!
+    COMBO(smoothcomp, SMOOTHCOMP), // keycodes with modifiers are possible too!
+    COMBO(associated, ASSOCIATED), // keycodes with modifiers are possible too!
+    COMBO(email_address, EMAIL_ADDRESS), // keycodes with modifiers are possible too!
+    COMBO(please, PLEASE), // keycodes with modifiers are possible too!
+    COMBO(haveaniceday, HAVEANICEDAY), // keycodes with modifiers are possible too!
+    COMBO(account, ACCOUNT), // keycodes with modifiers are possible too!
+    COMBO(manager, MANAGER), // keycodes with modifiers are possible too!
+    COMBO(user, USER), // keycodes with modifiers are possible too!
+    COMBO(access, ACCESS), // keycodes with modifiers are possible too!
 };
 
