@@ -1,7 +1,0 @@
-These 5 lines should be on the top 5 rows of keymap.c
-
-#include QMK_KEYBOARD_H
-#include "combos.c"
-#include "tapdance.c"
-#include "keymap_swedish.h"
-#include "sendstring_swedish.h"
