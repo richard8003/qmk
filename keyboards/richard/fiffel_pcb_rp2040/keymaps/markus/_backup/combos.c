@@ -207,19 +207,19 @@ combo_t key_combos[] = {
 
 
 // macros
-    COMBO(tfe, THANKYOUFORYOUREMAIL), // keycodes with modifiers are possible too!
-    COMBO(private_email, PRIVATE_EMAIL), // keycodes with modifiers are possible too!
-    COMBO(sc_email, SC_EMAIL), // keycodes with modifiers are possible too!
-    COMBO(organiser, ORGANISER), // keycodes with modifiers are possible too!
-    COMBO(smoothcomp, SMOOTHCOMP), // keycodes with modifiers are possible too!
-    COMBO(richard, RICHARD), // keycodes with modifiers are possible too!
-    COMBO(associated, ASSOCIATED), // keycodes with modifiers are possible too!
-    COMBO(email_address, EMAIL_ADDRESS), // keycodes with modifiers are possible too!
-    COMBO(please, PLEASE), // keycodes with modifiers are possible too!
-    COMBO(haveaniceday, HAVEANICEDAY), // keycodes with modifiers are possible too!
-    COMBO(account, ACCOUNT), // keycodes with modifiers are possible too!
-    COMBO(manager, MANAGER), // keycodes with modifiers are possible too!
-    COMBO(user, USER), // keycodes with modifiers are possible too!
-    COMBO(access, ACCESS), // keycodes with modifiers are possible too!
-    COMBO(registr, REGISTR), // keycodes with modifiers are possible too!
+    // COMBO(tfe, THANKYOUFORYOUREMAIL), // keycodes with modifiers are possible too!
+    // COMBO(private_email, PRIVATE_EMAIL), // keycodes with modifiers are possible too!
+    // COMBO(sc_email, SC_EMAIL), // keycodes with modifiers are possible too!
+    // COMBO(organiser, ORGANISER), // keycodes with modifiers are possible too!
+    // COMBO(smoothcomp, SMOOTHCOMP), // keycodes with modifiers are possible too!
+    // COMBO(richard, RICHARD), // keycodes with modifiers are possible too!
+    // COMBO(associated, ASSOCIATED), // keycodes with modifiers are possible too!
+    // COMBO(email_address, EMAIL_ADDRESS), // keycodes with modifiers are possible too!
+    // COMBO(please, PLEASE), // keycodes with modifiers are possible too!
+    // COMBO(haveaniceday, HAVEANICEDAY), // keycodes with modifiers are possible too!
+    // COMBO(account, ACCOUNT), // keycodes with modifiers are possible too!
+    // COMBO(manager, MANAGER), // keycodes with modifiers are possible too!
+    // COMBO(user, USER), // keycodes with modifiers are possible too!
+    // COMBO(access, ACCESS), // keycodes with modifiers are possible too!
+    // COMBO(registr, REGISTR), // keycodes with modifiers are possible too!
 };
