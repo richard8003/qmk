@@ -22,7 +22,7 @@ const uint16_t PROGMEM cut[] = {KC_P, KC_G, COMBO_END};
 const uint16_t PROGMEM copy[] = {KC_T, KC_D, COMBO_END};
 const uint16_t PROGMEM paste[] = {KC_V, KC_B, COMBO_END};
 // layer 3
-const uint16_t PROGMEM layer3_left[] = {KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM layer2[] = {KC_R, KC_S, COMBO_END};
 // delete a whole word
 const uint16_t PROGMEM delete_word_back[] = {KC_T, KC_S, KC_R, COMBO_END};
 // delete a whole line
@@ -47,6 +47,7 @@ const uint16_t PROGMEM f3_flameshot_tapdance[] = {KC_S, KC_V, COMBO_END};
 const uint16_t PROGMEM start_border[] = {KC_Q, KC_W, COMBO_END};
 
 
+
 // text string macros
 const uint16_t PROGMEM tfe[] = {KC_T, KC_F, KC_E, COMBO_END};
 const uint16_t PROGMEM private_email[] = {KC_ESC, KC_A, COMBO_END};
@@ -58,7 +59,7 @@ const uint16_t PROGMEM email_address[] = {KC_E, KC_A, KC_D, COMBO_END};
 const uint16_t PROGMEM associated[] = {KC_A, KC_O, KC_S, COMBO_END};
 const uint16_t PROGMEM please[] = {KC_P, KC_L, COMBO_END};
 const uint16_t PROGMEM password[] = {KC_P, KC_D, COMBO_END};
-const uint16_t PROGMEM haveaniceday[] = {KC_N, KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM haveaniceday[] = {KC_M, KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM account[] = {KC_A, KC_C, KC_O, KC_U, COMBO_END};
 const uint16_t PROGMEM user[] = {KC_U, KC_S, KC_R, COMBO_END};
 const uint16_t PROGMEM registr[] = {KC_R, KC_E, COMBO_END};
@@ -71,11 +72,22 @@ const uint16_t PROGMEM change[] = {KC_C, KC_E, COMBO_END};
 const uint16_t PROGMEM affiliation[] = {KC_A, KC_F, KC_N, COMBO_END};
 const uint16_t PROGMEM federation[] = {KC_F, KC_E, KC_N, COMBO_END};
 const uint16_t PROGMEM access[] = {KC_X, KC_S, COMBO_END};
-
-
+const uint16_t PROGMEM aerospace_seivice_mode[] = {KC_H, KC_N, COMBO_END};
+const uint16_t PROGMEM osl_layer4[] = {KC_N, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM qmk_reset[] = {KC_W, KC_F, KC_P, KC_L, KC_U, KC_Y, COMBO_END};
 
 
 combo_t key_combos[] = {
+
+    // qmk reset
+    COMBO(qmk_reset, QK_BOOT),
+
+    // one-shot-layer 3
+    COMBO(osl_layer4, OSL(3)),
+
+    // aerospace seivice mode
+    COMBO(aerospace_seivice_mode, LAG(KC_S)),
+
     // Flameshot and mission control
     COMBO(f3_flameshot_tapdance, FLAMESHOT),
 
@@ -106,7 +118,7 @@ combo_t key_combos[] = {
     // COMBO(ff, KC_F3),
 
     // layer 3
-    COMBO(layer3_left, LT(3,KC_NO)),
+    COMBO(layer2, LT(2, KC_NO)),
 
     // delete one word
     COMBO(delete_word_back, LALT(KC_BSPC)),

@@ -24,10 +24,12 @@ enum custom_keycodes {
     FEDERATION,
     AFFILIATION,
     AXESS,
+    RUNE,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+
 
     case AFFILIATION:
         if (record->event.pressed) {
@@ -49,7 +51,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
            SEND_STRING("password");
         } else {
-            // when keycode QMKURL is released
+            // when keycode QMKURL is releasedLT | QK_LGUI | (kc)
         }
         break;
 
