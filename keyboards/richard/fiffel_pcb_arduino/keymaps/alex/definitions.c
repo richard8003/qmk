@@ -13,8 +13,9 @@
 #define       L2_ESC            LT(2, KC_ESC)
 #define       L3_ESC            LT(3, KC_ESC)
 #define       CMD_TAB           LGUI_T(KC_TAB)
-#define       CTRL_ENT           RCTL_T(KC_ENT)
+#define       CTRL_ENT          RCTL_T(KC_ENT)
 #define       OPT_ESC           LALT_T(KC_ESC)
+
 
 // layer1
 #define       PIPE              LALT(KC_7)

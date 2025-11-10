@@ -1,3 +1,4 @@
+#include "definitions.c"
 
 enum custom_keycodes {
     THANKYOUFORYOUREMAIL = SAFE_RANGE,
@@ -25,11 +26,37 @@ enum custom_keycodes {
     AFFILIATION,
     AXESS,
     RUNE,
+    FUBAR,
+    SC_USR,
 };
 
+
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+        // Clear oneshot layer after first keypress
+    if (record->event.pressed) {
+        if (get_oneshot_layer_state() == ONESHOT_PRESSED) {
+            clear_oneshot_layer_state(ONESHOT_PRESSED);
+        }
+    }
     switch (keycode) {
 
+    case SC_EMAIL:
+        if (record->event.pressed) {
+           SEND_STRING("johansson@Smoothcomp.com");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
+
+    case PRIVATE_EMAIL:
+        if (record->event.pressed) {
+           SEND_STRING("richard.johansson.8003@gmail.com");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
 
     case AFFILIATION:
         if (record->event.pressed) {
@@ -193,7 +220,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode QMKBEST is released
         }
         break;
+    case FUBAR:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING(":!ls");
+            tap_code(KC_ENTER);
+            /* tap_code16(KC_GRV); // Sends "<" */
+            /* SEND_STRING("CR"); */
+            /* tap_code16(LSFT(KC_GRV));  // Sends ">" */
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
     }
 
     return true;
+
 };
