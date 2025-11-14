@@ -1,7 +1,13 @@
 #include QMK_KEYBOARD_H
 #include "macros.c"
 #include "definitions.h"
+enum combo_events {
+  STENO,
+  BASE_LAYER_SWITCH,
+};
 
+const uint16_t PROGMEM steno[] = {KC_R, KC_S, KC_T, KC_N, KC_E, KC_I, COMBO_END}; // '
+const uint16_t PROGMEM base[] = {KC_Q, KC_W, KC_E, COMBO_END}; // '
 const uint16_t PROGMEM single_quote[] = {KC_U, KC_N, COMBO_END}; // '
 const uint16_t PROGMEM quote[] = {KC_M, KC_L, COMBO_END}; // "
 const uint16_t PROGMEM question_mark[] = {KC_U, KC_Y, COMBO_END}; // ?
@@ -99,6 +105,8 @@ combo_t key_combos[] = {
     // COMBO(right_shift, KC_RSFT),
     // COMBO(single_quote, KC_BSLS),
 
+    [STENO] = COMBO(steno, TO(4)),
+    [BASE_LAYER_SWITCH] = COMBO(base, TO(0)),
     COMBO(right_shift, OSM(MOD_LSFT)),
     COMBO(single_quote, KC_BSLS),
     COMBO(quote, LSFT(KC_2)),
@@ -157,4 +165,25 @@ combo_t key_combos[] = {
 
 
 
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
+    switch (combo_index) {
+        case STENO:
+            if (layer_state_is(0)) {
+                return true;
+            }
+            return false;
+            break;
+        case BASE_LAYER_SWITCH:
+            if (layer_state_is(4)) {
+                return true;
+            }
+            return false;
+            break;
+    }
+    if (layer_state_is(4)) {
+        return false;
+    }
 
+    return true;
+}

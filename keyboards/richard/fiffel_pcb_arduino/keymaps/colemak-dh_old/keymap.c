@@ -14,9 +14,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //-----------------------------------------------------------------             ------------------------------------------------------------------------
       LT(3, KC_CAPS),KC_A,     KC_R,       KC_S,       KC_T,        KC_G,             KC_M,      KC_N,         KC_E,        KC_I,        KC_O,        KC_QUOT,
       //-----------------------------------------------------------------             -----------------------------------------------------------------------
-      SGUI(KC_4),    KC_Z,     KC_X,       KC_C,       KC_D,        KC_V,             KC_K,      KC_H,         KC_COMM,     KC_DOT,      KC_PSLS,     NONE,
+      SGUI(KC_4),    KC_Z,     KC_X,       KC_C,       KC_D,        KC_V,             KC_K,      KC_H,         KC_COMM,     KC_DOT,      KC_PSLS,     KC_NO,
       //-----------------------------------------------------------------             ------------------------------------------------------------------------
-                                   LALT_T(KC_ESC),    L1_BSPC,  CMD_TAB,              CTRL_ENT,  L1_SPC,       L2_ESC
+                      LALT_T(KC_ESC),    LT(1, KC_BSPC),  LGUI_T(KC_TAB),             RCTL_T(KC_ENT),  LT(1, KC_SPC),      LT(2, KC_ESC)
     ),
 
 //############################################################################################################################################################
@@ -48,6 +48,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NONE,         NONE,      NONE,       NONE,       NONE,        NONE,             NONE,      NONE,         NONE,         NONE,        NONE,        NONE,
       //-----------------------------------------------------------------             ------------------------------------------------------------------------
                                            NONE,       NONE,        NONE,             KC_ENT,    NONE,         NONE),
+
+//############################################################################################################################################################
+
+[4] = LAYOUT_split_3x6_3(
+        // Left hand top row
+      KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1   ,
+      KC_NO,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
+      KC_NO,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+
+      KC_C,    KC_V,    KC_NO,   KC_NO,   KC_N,    KC_M),
+
+
+
+
 };
 
 

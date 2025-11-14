@@ -1,0 +1,177 @@
+#include QMK_KEYBOARD_H
+#include <string.h>
+#include <ctype.h>
+#include "quantum/send_string/send_string.h"
+
+// -----------------------------------------------------------------------------
+// custom keycodes
+// -----------------------------------------------------------------------------
+enum custom_keycodes {
+    THANKYOUFORYOUREMAIL = SAFE_RANGE,
+    SC_EMAIL,
+    PRIVATE_EMAIL,
+    ORGANISER,
+    SMOOTHCOMP,
+    RICHARD,
+    EMAIL_ADDRESS,
+    ASSOCIATED,
+    PLEASE,
+    HAVEANICEDAY,
+    ACCOUNT,
+    USER,
+    ACCESS,
+    REGISTR,
+    REGISTRATION,
+    EVENT,
+    ACADEMY,
+    QUESTION,
+    PAGE,
+    CHANGE,
+    PASSWORD,
+    FEDERATION,
+    AFFILIATION,
+    AXESS,
+    RUNE,
+    FUBAR,
+    SC_USR,
+    MOVED_FROM,
+    ADMIN,
+    SCREENSHOT,
+    YOUTUBE,
+    MYREPLY,
+    SINTOENG,
+    ATHLETE,
+    THE,
+    LINK,
+    ME,
+    YOU,
+    IT,
+    ITS,
+    SEND,
+    TO
+};
+
+// -----------------------------------------------------------------------------
+// helper: send string, but if Shift is held (including oneshot), capitalize first letter
+// -----------------------------------------------------------------------------
+
+static void send_string_cap_first(const char *s) {
+    if (!s) return;
+
+    uint8_t mods = get_mods() | get_oneshot_mods();
+    bool shift_active = mods & MOD_MASK_SHIFT;
+
+    if (shift_active) {
+        // remove shift so characters we send are not double-shifted
+        del_mods(MOD_MASK_SHIFT);
+
+        // prepare buffer and capitalize first letter
+        char buf[256]; // adjust size if you need longer strings
+        size_t len = strlen(s);
+        if (len >= sizeof(buf)) len = sizeof(buf) - 1;
+        strncpy(buf, s, len);
+        buf[len] = '\0';
+
+        if (len > 0) {
+            buf[0] = (char) toupper((unsigned char) buf[0]);
+        }
+
+        // send runtime string (NOT SEND_STRING macro)
+        send_string_with_delay(buf, 0);
+
+        // restore modifiers
+        set_mods(mods);
+    } else {
+        // send runtime string (NOT SEND_STRING macro)
+        send_string_with_delay(s, 0);
+    }
+}
+// -----------------------------------------------------------------------------
+// main process_record_user
+// -----------------------------------------------------------------------------
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Clear oneshot layer after first keypress
+    if (record->event.pressed) {
+        if (get_oneshot_layer_state() == ONESHOT_PRESSED) {
+            clear_oneshot_layer_state(ONESHOT_PRESSED);
+        }
+    }
+
+    if (!record->event.pressed) {
+        // We only handle on press for these text-send keycodes
+        return true;
+    }
+
+    switch (keycode) {
+        // small/common words (capitalizes first letter if Shift held)
+        case LINK:      send_string_cap_first("link");         break;
+        case ME:        send_string_cap_first("me");           break;
+        case YOU:       send_string_cap_first("you");          break;
+        case IT:        send_string_cap_first("it");           break;
+        case ITS:       send_string_cap_first("it's");         break;
+        case SEND:      send_string_cap_first("send");         break;
+        case TO:        send_string_cap_first("to");           break;
+
+        // emails and fixed strings (we don't want first-letter capitalisation here,
+        // so use SEND_STRING directly)
+        case SC_EMAIL:       SEND_STRING("johansson@Smoothcomp.com"); break;
+        case PRIVATE_EMAIL:  SEND_STRING("richard.johansson.8003@gmail.com"); break;
+
+        // longer words (use helper to allow Shift -> capital first letter)
+        case AFFILIATION:    send_string_cap_first("affiliation");   break;
+        case FEDERATION:     send_string_cap_first("federation");    break;
+        case PASSWORD:       send_string_cap_first("password");      break;
+        case CHANGE:         send_string_cap_first("change");        break;
+        case PAGE:           send_string_cap_first("page");          break;
+        case RICHARD:        send_string_cap_first("richard");       break;
+        case QUESTION:       send_string_cap_first("question");      break;
+        case REGISTR:        send_string_cap_first("register");      break;
+        case REGISTRATION:   send_string_cap_first("registration");  break;
+        case EVENT:          send_string_cap_first("event");         break;
+        case ACADEMY:        send_string_cap_first("academy");       break;
+        case USER:           send_string_cap_first("user");          break;
+        case AXESS:          send_string_cap_first("access");        break;
+        case ACCOUNT:        send_string_cap_first("account");       break;
+
+        case THANKYOUFORYOUREMAIL:
+            // example with newline at end
+            // Capitalization probably not desired for this whole sentence, so send exact text
+            SEND_STRING("Thank you for your email.\n");
+            break;
+
+        case ORGANISER:      SEND_STRING("organiser");     break;
+        case SMOOTHCOMP:     SEND_STRING("Smoothcomp");    break;
+        case EMAIL_ADDRESS:  SEND_STRING("email address"); break;
+        case ASSOCIATED:     SEND_STRING("associated");    break;
+        case PLEASE:         SEND_STRING("please");        break;
+        case HAVEANICEDAY:   SEND_STRING("Have a nice day!"); break;
+
+        case MOVED_FROM:     SEND_STRING("Moved from ");   break;
+        case ADMIN:          SEND_STRING("admin");         break;
+        case SCREENSHOT:     SEND_STRING("screenshot");    break;
+        case YOUTUBE:        SEND_STRING("YouTube");       break;
+
+        case MYREPLY:
+            SEND_STRING("Translate this reply to sinhala in a casual way like people talk in everyday life. Also just print the sentance in sinhala script and roman letters, without any additional information or explanation: ");
+            break;
+
+        case SINTOENG:
+            SEND_STRING("Translate to sinhala using roman letters: ");
+            break;
+
+        case ATHLETE:        send_string_cap_first("athlete"); break;
+        case THE:            send_string_cap_first("the");     break;
+
+        // FUBAR: runs a short command and hits Enter (keeps your original behaviour)
+        case FUBAR:
+            // example: send string ":!ls" then press enter (use with care)
+            SEND_STRING(":!ls");
+            tap_code(KC_ENTER);
+            break;
+
+        default:
+            return true; // let QMK handle any other keycodes normally
+    }
+
+    return true;
+}

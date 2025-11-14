@@ -35,19 +35,74 @@ enum custom_keycodes {
     MYREPLY,
     SINTOENG,
     ATHLETE,
-    THE
+    THE,
+    LINK,
+    ME,
+    YOU,
+    IT,
+    ITS,
+    SEND,
+    IM
 };
 
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-        // Clear oneshot layer after first keypress
-   if (record->event.pressed) {
+    // Clear oneshot layer after first keypress
+    if (record->event.pressed) {
         if (get_oneshot_layer_state() == ONESHOT_PRESSED) {
             clear_oneshot_layer_state(ONESHOT_PRESSED);
         }
     }
     switch (keycode) {
+
+        case LINK:
+            if (record->event.pressed) {
+                SEND_STRING("link");
+            } else {
+                // when keycode QMKURL is released
+            }
+            break;
+
+        case IM:
+        if (record->event.pressed) {
+           SEND_STRING("I'm");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
+
+    case YOU:
+        if (record->event.pressed) {
+           SEND_STRING("You");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
+
+    case IT:
+        if (record->event.pressed) {
+           SEND_STRING("it");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
+
+    case ITS:
+        if (record->event.pressed) {
+           SEND_STRING("it's");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
+
+    case SEND:
+        if (record->event.pressed) {
+           SEND_STRING("send");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
 
     case SC_EMAIL:
         if (record->event.pressed) {
@@ -174,7 +229,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case THANKYOUFORYOUREMAIL:
         if (record->event.pressed) {
-           SEND_STRING("Thank you for your email.\n"); // selects all and copies
+           SEND_STRING("Thank you for your email."); // selects all and copies
         } else {
             // when keycode QMKURL is released
         }
@@ -303,9 +358,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode QMKBEST is released
         }
         break;
-
-
     }
     return true;
-
 };
