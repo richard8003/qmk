@@ -27,10 +27,19 @@ enum custom_keycodes {
     AFFILIATION,
     AXESS,
     RUNE,
+    MOVED_FROM,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+
+    case MOVED_FROM:
+        if (record->event.pressed) {
+           SEND_STRING("Moved from ");
+        } else {
+            // when keycode QMKURL is released
+        }
+        break;
 
     case SC_EMAIL:
         if (record->event.pressed) {

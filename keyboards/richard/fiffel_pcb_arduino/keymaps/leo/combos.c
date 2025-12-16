@@ -75,8 +75,8 @@ const uint16_t PROGMEM the[]                    = {KC_D, KC_H,               COM
 const uint16_t PROGMEM jag[]                    = {KC_I, KC_R,               COMBO_END};           //   jag
 const uint16_t PROGMEM and_[]                   = {KC_G, KC_M,               COMBO_END};           //   the
 const uint16_t PROGMEM are[]                    = {KC_V, KC_K,               COMBO_END};           //   the
-const uint16_t PROGMEM user[]                   = {KC_U, KC_S, KC_R,         COMBO_END};           //   user
 // const uint16_t PROGMEM password[]               = {KC_P, KC_D,               COMBO_END};           //   password
+// const uint16_t PROGMEM user[]                   = {KC_U, KC_S, KC_R,         COMBO_END};           //   user
 // const uint16_t PROGMEM registr[]                = {KC_R, KC_E,               COMBO_END};           //   registr
 // const uint16_t PROGMEM moved_from[]             = {KC_X, KC_C, KC_D,         COMBO_END};           //   moved_from
 // const uint16_t PROGMEM registration[]           = {KC_R, KC_N,               COMBO_END};           //   registration
@@ -234,7 +234,6 @@ combo_t key_combos[] = {
     COMBO(and_,                  AND_),
     COMBO(are,                   ARE),
     COMBO(you,                   YOU),
-    COMBO(user,                  USER),
     // COMBO(do_,                   DO_),
     // COMBO(not_,                  NOT_),
     // COMBO(at_,                   AT_),
@@ -248,6 +247,7 @@ combo_t key_combos[] = {
     // COMBO(or,                    OR),
     // COMBO(registration,          REGISTRATION),
     // COMBO(registr,               REGISTR),
+    // COMBO(user,                  USER),
     // COMBO(change,                CHANGE),
     // COMBO(password,              PASSWORD),
     // COMBO(affiliation,           AFFILIATION),

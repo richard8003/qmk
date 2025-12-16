@@ -49,4 +49,6 @@
 
 #define TAP_DANCE_TERM 50
 
+#define LEADER_TIMEOUT 350
+#define LEADER_NO_TIMEOUT
 

@@ -18,7 +18,7 @@ RGB_MATRIX_ENABLE = no    # Enable keyboard RGB matrix functionality
 UNICODE_ENABLE = yes
 
 NKRO_ENABLE = yes
-
+LEADER_ENABLE = yes # enables the leader key
 
 SPLIT_KEYBOARD = yes
 
