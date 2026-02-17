@@ -18,13 +18,14 @@ RGB_MATRIX_ENABLE = no    # Enable keyboard RGB matrix functionality
 UNICODE_ENABLE = yes
 
 NKRO_ENABLE = yes
-LEADER_ENABLE = yes # enables the leader key
+LEADER_ENABLE = no
+ONE_SHOT_ENABLE = yes
 
 SPLIT_KEYBOARD = yes
 
 BOOTLOADER = caterina
 COMBO_ENABLE = yes
-TAP_DANCE_ENABLE = yes
+TAP_DANCE_ENABLE = no
 AUTO_SHIFT_ENABLE = no
 
 MOUSEKEY_ENABLE = yes

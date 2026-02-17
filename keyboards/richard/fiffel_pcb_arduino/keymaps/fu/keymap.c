@@ -1,9 +1,9 @@
 /* #include "QMK_KEYBOARD_H" */
-#include "definitions.h"
-#include "keymap_swedish.h"
-#include "sendstring_swedish.h"
+// #include "definitions.h"
+// #include "keymap_swedish.h"
+// #include "sendstring_swedish.h"
 // #include "tapdance.c"
-#include "combos.c"
+#include "./combos/combos.h"
 // #include "leader.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -15,7 +15,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───────────────┼──────────┼──────────┼──────────┼──────────┼──────────┤        ├─────────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
        SGUI(KC_4),     KC_Z,      KC_X,      KC_C,      KC_D,      KC_V,               KC_K,         KC_H,      KC_COMM,   KC_DOT,    KC_PSLS,   TG(5),
 //    ╰───────────────┴──────────┴─────┬────┴──────────┼──────────┼──────────┤        ├─────────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
-                                        LALT_T(KC_ESC), L1_BSPC,   CMD_TAB,            CTRL_ENT,     LT(3, KC_SPC),    QK_LEAD),
+                                        LT(2, KC_ESC), L1_BSPC,   CMD_TAB,            CTRL_ENT,     LT(3, KC_SPC),    LT(2, KC_NO)),
+                                        // LALT_T(KC_ESC), L1_BSPC,   CMD_TAB,            CTRL_ENT,     LT(3, KC_SPC),    LT(2, KC_NO)),
 //                                     ╰───────────────┴──────────┴──────────╯        ╰─────────────┴──────────┴──────────╯
 
     [1] = LAYOUT_split_3x6_3(
@@ -30,11 +31,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                          ╰──────────┴──────────┴──────────╯        ╰─────────────┴──────────┴──────────╯
     [2] = LAYOUT_split_3x6_3(
 //    ╭───────────────┬──────────┬──────────┬──────────┬──────────┬──────────╮        ╭─────────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
-       NONE,           NONE,      GO_TO_7,   GO_TO_8,   GO_TO_9,   NONE,               NONE,         MOVE_TO_7, MOVE_TO_8, MOVE_TO_9, NONE,      NONE,
+       NONE,           NONE,      GO_TO_1,   GO_TO_2,   GO_TO_3,   NONE,               NONE,         MOVE_TO_1, MOVE_TO_2, MOVE_TO_3, NONE,      NONE,
 //    ├───────────────┼──────────┼──────────┼──────────┼──────────┼──────────┤        ├─────────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
        NONE,           NONE,      GO_TO_4,   GO_TO_5,   GO_TO_6,   NONE,               NONE,         MOVE_TO_4, MOVE_TO_5, MOVE_TO_6, NONE,      NONE,
 //    ├───────────────┼──────────┼──────────┼──────────┼──────────┼──────────┤        ├─────────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-       NONE,           NONE,      GO_TO_1,   GO_TO_2,   GO_TO_3,   NONE,               NONE,         MOVE_TO_1, MOVE_TO_2, MOVE_TO_3, NONE,      NONE,
+       NONE,           NONE,      GO_TO_7,   GO_TO_8,   GO_TO_9,   NONE,               NONE,         MOVE_TO_7, MOVE_TO_8, MOVE_TO_9, NONE,      NONE,
 //    ╰───────────────┴──────────┴──────────┼──────────┼──────────┼──────────┤        ├─────────────┼──────────┼──────────┼──────────┴──────────┴──────────╯
                                              NONE,       NONE,     NONE,               NONE,         NONE,      NONE),
 //                                          ╰──────────┴──────────┴──────────╯        ╰─────────────┴──────────┴──────────╯

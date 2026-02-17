@@ -1,10 +1,11 @@
 #include QMK_KEYBOARD_H
 #include "macros.c"
 #include "definitions.h"
+#include "mac.c"
 /* ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  *  Symbol / punctuation combos
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-const uint16_t PROGMEM single_quote[]           = {KC_U, KC_N, COMBO_END};                         //   '
+// const uint16_t PROGMEM single_quote[]           = {KC_U, KC_N, COMBO_END};                         //   '
 const uint16_t PROGMEM quote[]                  = {KC_M, KC_L, COMBO_END};                         //   "
 const uint16_t PROGMEM question_mark[]          = {KC_U, KC_Y, COMBO_END};                         //   ?
 const uint16_t PROGMEM bang[]                   = {KC_Q, KC_W, COMBO_END};                         //   !
@@ -159,7 +160,7 @@ combo_t key_combos[] = {
     COMBO(alt,                   KC_LALT),
     COMBO(left_shift,            KC_LSFT),
     COMBO(right_shift,           KC_LSFT),
-    COMBO(single_quote,          KC_BSLS),
+    // COMBO(single_quote,          KC_BSLS),
     COMBO(quote,                 LSFT(KC_2)),
     COMBO(question_mark,         LSFT(KC_MINS)),
     COMBO(bang,                  LSFT(KC_1)),
